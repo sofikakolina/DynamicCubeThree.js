@@ -5,7 +5,7 @@ import { Canvas, ThreeElements } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { useAppSelector } from '@/store/store'
 
-type TriangleProps = ThreeElements['mesh'] & { dot: number[][] }
+type TriangleProps = ThreeElements['mesh'] & { dot: any }
 
 const Triangle: React.FC<TriangleProps> = ({ dot, ...props }) => {
   const meshRef = useRef<THREE.Mesh>(null!)
