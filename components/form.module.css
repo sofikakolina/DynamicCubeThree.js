@@ -1,0 +1,32 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.errorText{
+    color: red;
+    font-size: 12px;
+}
+
+.formTextSize{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    gap: 5px;
+
+}
+
+.formTextInputBlock{
+    display: flex;
+    flex-direction: column;
+}
+
+.textSize{
+    font-size: 18px;
+}
+
+.buttonBlock{
+    display: flex;
+    justify-content: center;
+}
