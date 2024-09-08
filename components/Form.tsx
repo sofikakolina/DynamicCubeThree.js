@@ -1,7 +1,7 @@
 'use client'
 import { useForm, SubmitHandler } from "react-hook-form"
 import axios from "axios"
-import { useAppDispatch } from "@/store/store"
+import { useAppDispatch, useAppSelector } from "@/store/store"
 import styles from './form.module.css'
 import { addDot, deleteDots } from "@/store/features/dotsSlice"
 
@@ -18,6 +18,7 @@ export default function Form() {
     formState: { errors },
   } = useForm<Inputs>()
   const dispatch = useAppDispatch()
+  const darkMode = useAppSelector(state => state.darkMode.darkMode)
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
@@ -39,7 +40,7 @@ export default function Form() {
   return (
     <form  onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       <div className={styles.formTextSize}>
-        <h3  className={styles.textSize}>Height</h3>
+        <h3  className={styles.textSize} style={{color: darkMode ? "white" : ""}}>Height</h3>
         <div className={styles.formTextInputBlock}>
           <input type="number" {...register("height", { required: true })} />
           {errors.height && <span className={styles.errorText}>This field is required</span>}
@@ -47,7 +48,7 @@ export default function Form() {
       </div>
 
       <div className={styles.formTextSize}>
-        <h3  className={styles.textSize}>Width</h3>
+        <h3  className={styles.textSize} style={{color: darkMode ? "white" : ""}}>Width</h3>
         <div className={styles.formTextInputBlock}>
           <input type="number" {...register("width", { required: true })} />
           {errors.width && <span className={styles.errorText}>This field is required</span>}
@@ -55,7 +56,7 @@ export default function Form() {
       </div>
 
       <div className={styles.formTextSize}>
-        <h3 className={styles.textSize}>Length</h3>
+        <h3 className={styles.textSize} style={{color: darkMode ? "white" : ""}}>Length</h3>
         <div className={styles.formTextInputBlock}>
           <input type="number" {...register("length", { required: true })} />
           {errors.length && <span className={styles.errorText}>This field is required</span>}
